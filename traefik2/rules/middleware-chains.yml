@@ -1,0 +1,54 @@
+http:
+  middlewares:
+    chain-no-auth:
+      chain:
+        middlewares:
+          - middlewares-rate-limit
+          - middlewares-https-redirectscheme
+#          - middlewares-secure-headers
+
+    chain-basic-auth:
+      chain:
+        middlewares:
+          - middlewares-rate-limit
+          - middlewares-https-redirectscheme
+          #- middlewares-secure-headers
+          - middlewares-basic-auth
+          - middlewares-compress
+
+    chain-authelia:
+      chain:
+        middlewares:
+          - middlewares-rate-limit
+          - middlewares-https-redirectscheme
+          - middlewares-secure-headers
+          - middlewares-authelia
+          - middlewares-compress
+
+    chain-traefik:
+      chain:
+        middlewares:
+          - middlewares-rate-limit
+          - middlewares-https-redirectscheme
+          - middlewares-secure-headers
+          - middlewares-authelia
+#          - middlewares-compress
+
+    chain-synology:
+      chain:
+        middlewares:
+          - middlewares-rate-limit
+          - middlewares-https-redirectscheme
+          - middlewares-secure-headers
+          - middlewares-authelia
+          - middlewares-compress
+
+    chain-test:
+      chain:
+        middlewares:
+          - middlewares-rate-limit
+          - middlewares-https-redirectscheme
+          - middlewares-secure-headers
+          #- middlewares-authelia
+          - middlewares-compress
+
